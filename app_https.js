@@ -19,6 +19,10 @@ var options = {
 var app = express();
 app.use(bodyParser.json());
 
+var exphbs  = require('express-handlebars');
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
+
 var server = https.createServer(options, app).listen(port, function () {
   port = server.address().port;
   console.log('Listening on https://' + server.address().address + ':' + port);

@@ -48,7 +48,7 @@ module.exports = function(app) {
 
         if(intent && typeof intent.activate === 'function') {
             var isIntentRequest = request.type === REQUEST_TYPES.INTENT;
-            intent.activate(req, res, request.type, isIntentRequest);
+            intent.activate(req, res, isIntentRequest);
         }
     });
 };

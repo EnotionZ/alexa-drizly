@@ -10,9 +10,14 @@ var BaseIntent = {
         this.req = req;
         this.res = res;
 
-        if(typeof this.onMessage === 'function') {
+        if(typeof this.onIntent === 'function') {
             var slots = isIntentRequest ? req.body.request.intent.slots : null;
-            this.onMessage(req.body, slots);
+
+            if(typeof this.preIntent === 'function') {
+                this.preIntent.call(this, req.body, slots);
+            } else {
+                this.onIntent(req.body, slots);
+            }
         }
     },
 

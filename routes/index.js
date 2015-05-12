@@ -3,4 +3,6 @@ module.exports = function(app) {
         res.writeHead(200);
         res.end("hello world\n");
     });
+
+    app.get('/auth/:hash', require('./auth'));
 };
