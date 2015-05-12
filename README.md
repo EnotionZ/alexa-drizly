@@ -1,4 +1,4 @@
-# echo-nodejs-starter
+# alexa-drizly
 
 ### Generate SSL key and cert
 
