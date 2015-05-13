@@ -7,6 +7,11 @@ var port      = process.argv[2] || 8443;
 var app = express();
 app.use(bodyParser.json());
 
+// to support URL-encoded bodies
+app.use(bodyParser.urlencoded({
+      extended: true
+}));
+
 var exphbs  = require('express-handlebars');
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');

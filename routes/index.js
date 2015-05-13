@@ -4,5 +4,5 @@ module.exports = function(app) {
         res.end("hello world\n");
     });
 
-    app.get('/auth/:hash', require('./auth'));
+    require('./auth').init(app);
 };
